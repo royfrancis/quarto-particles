@@ -261,11 +261,13 @@ local function particles(args, kwargs)
     style = true,
     config = true,
     ['config-mode'] = true,
-    config_mode = true
+    config_mode = true,
+    position = true
   }
 
-  local id = get_kwarg(kwargs, 'id') or ('particles-js-' .. instance_counter)
+  local id = get_kwarg(kwargs, 'id') or ('quarto-particlejs-' .. instance_counter)
   local class_attr = get_kwarg(kwargs, 'class')
+  local position = get_kwarg(kwargs, 'position') or 'unset'
   local height = parse_dimension(get_kwarg(kwargs, 'height'), '400px')
   local width = parse_dimension(get_kwarg(kwargs, 'width'), '100%')
   local background = get_kwarg(kwargs, 'background') or get_kwarg(kwargs, 'background-color') or '#ffffff'
@@ -329,7 +331,7 @@ local function particles(args, kwargs)
   end
 
   local style_parts = {
-    'position: unset',
+    'position: ' .. position,
     'width: ' .. width,
     'height: ' .. height,
     'background-color: ' .. background

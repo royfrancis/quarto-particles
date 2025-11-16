@@ -37,8 +37,9 @@ Pass arguments to the shortcode with `key=value`. Nested keys follow the particl
 
 | Key | Default | Description |
 | --- | --- | --- |
-| `id` | auto (`particles-js-#`) | HTML id for the wrapper div.
+| `id` | auto (`quarto-particlejs-#`) | HTML id for the wrapper div.
 | `class` | *(none)* | Space-delimited CSS classes added to the wrapper.
+| `position` | `unset` | CSS position value applied to the wrapper.
 | `width` | `100%` | Wrapper width; append a unit or bare number for pixels.
 | `height` | `400px` | Wrapper height; append a unit or bare number for pixels.
 | `background` / `background-color` | `#ffffff` | Background color behind the canvas.
