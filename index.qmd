@@ -28,6 +28,8 @@ This will install the extension under the `_extensions` subdirectory.
 
 ## Usage
 
+### Minimal usage
+
 - Add `particles` to filters  
 - Insert shortcode in the quarto document  
 
@@ -41,6 +43,68 @@ filters:
 ```
 
 {{< particles >}}
+
+### Customization
+
+You can customize the particles by passing a JSON configuration object to the shortcode. For example:
+
+```yaml
+---
+filters:
+  - particles
+--- 
+
+{{{< particles
+  height=320
+  background="#0b1c26"
+  particles.number.value=120
+  particles.color.value="#55acee"
+  particles.move.speed=2
+  interactivity.events.onhover.mode=grab
+  interactivity.modes.grab.distance=250
+>}}}
+```
+
+{{< particles
+  height=320
+  background="#0b1c26"
+  particles.number.value=120
+  particles.color.value="#55acee"
+  particles.move.speed=2
+  interactivity.events.onhover.mode=grab
+  interactivity.modes.grab.distance=250
+>}}
+
+Here is another example with different settings:
+
+```yaml
+---
+filters:
+  - particles
+---
+
+{{{< particles
+  height=400
+  background="#1a1a1a"
+  particles.number.value=80
+  particles.color.value="#ff5733"
+  particles.move.speed=10
+  interactivity.events.onhover.mode=bubble
+  interactivity.modes.bubble.distance=200
+>}}} 
+``` 
+
+{{< particles
+  height=400
+  background="#1a1a1a"
+  particles.number.value=80
+  particles.color.value="#ff5733"
+  particles.move.speed=10
+  interactivity.events.onhover.mode=bubble
+  interactivity.modes.bubble.distance=200
+>}} 
+
+See the repo [README](https://github.com/royfrancis/quarto-particles) for full list of arguments.
 
 ### Other output formats
 
