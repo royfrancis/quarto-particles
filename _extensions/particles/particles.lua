@@ -8,7 +8,7 @@ local SCRIPT_URL = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js
 local DEFAULT_CONFIG = {
   particles = {
     number = { value = 80, density = { enable = true, value_area = 800 } },
-    color = { value = "#a6cbcf" },
+    color = { value = "#5b5b5b" },
     shape = {
       type = "circle",
       stroke = { width = 0, color = "#000000" },
@@ -28,7 +28,7 @@ local DEFAULT_CONFIG = {
     line_linked = {
       enable = true,
       distance = 150,
-      color = "#a6cbcf",
+      color = "#5b5b5b",
       opacity = 0.4,
       width = 1
     },
@@ -329,7 +329,7 @@ local function particles(args, kwargs)
   end
 
   local style_parts = {
-    'position: relative',
+    'position: unset',
     'width: ' .. width,
     'height: ' .. height,
     'background-color: ' .. background
