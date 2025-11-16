@@ -1,0 +1,47 @@
+---
+title: "Particles"
+subtitle: "Add Particles.JS to Quarto HTML documents"
+description: "A quarto shortcode extension to add Particles.JS for html format."
+author: "Roy Francis"
+date: last-modified
+date-format: DD-MMM-YYYY
+toc: true
+number-sections: true
+title-block-banner: true
+format:
+  html:
+   css: styles.css
+filters:
+  - particles
+---
+
+## Install
+
+- Requires Quarto >= 1.4.0  
+- In the root of the quarto project, run in terminal:  
+
+```bash
+quarto add royfrancis/quarto-particles
+```
+
+This will install the extension under the `_extensions` subdirectory.
+
+## Usage
+
+- Add `particles` to filters  
+- Insert shortcode in the quarto document  
+
+```yaml
+---
+filters:
+  - particles
+---
+
+{{{< particles >}}}
+```
+
+{{< particles >}}
+
+### Other output formats
+
+The content is simply ignored when the output format is anything other than `html`.
