@@ -46,7 +46,7 @@ filters:
 
 ### Customization
 
-You can customize the particles by passing a JSON configuration object to the shortcode. For example:
+You can customize the particles by passing key/value pairs that map onto the particles.js configuration. The wrapper always includes a `quarto-particles-js` class (defined in `_extensions/particles/particles.css`) and the generated `id` as another class—add a `style` attribute or additional CSS if you need explicit sizing or background colors or want per-instance styling. For example:
 
 ```yaml
 ---
@@ -55,8 +55,7 @@ filters:
 --- 
 
 {{{< particles
-  height=320
-  background="#0b1c26"
+  style="height: 320px; background-color: #0b1c26"
   particles.number.value=120
   particles.color.value="#55acee"
   particles.move.speed=2
@@ -66,8 +65,7 @@ filters:
 ```
 
 {{< particles
-  height=320
-  background="#0b1c26"
+  style="height: 320px; background-color: #0b1c26"
   particles.number.value=120
   particles.color.value="#55acee"
   particles.move.speed=2
@@ -84,8 +82,7 @@ filters:
 ---
 
 {{{< particles
-  height=400
-  background="#1a1a1a"
+  style="height: 400px; background-color: #1a1a1a"
   particles.number.value=80
   particles.color.value="#ff5733"
   particles.move.speed=10
@@ -95,8 +92,7 @@ filters:
 ``` 
 
 {{< particles
-  height=400
-  background="#1a1a1a"
+  style="height: 400px; background-color: #1a1a1a"
   particles.number.value=80
   particles.color.value="#ff5733"
   particles.move.speed=10

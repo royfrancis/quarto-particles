@@ -1,5 +1,14 @@
 -- particles.lua --
 
+-- Add html dependencies
+local function addHTMLDeps()
+  -- add the HTML requirements for the Bootstrap particles
+  quarto.doc.add_html_dependency({
+    name = 'particles',
+    stylesheets = {'particles.css'}
+  })
+end
+
 local utils = require 'pandoc.utils'
 local has_json, json = pcall(require, 'pandoc.json')
 
@@ -208,17 +217,6 @@ local function split_key(key)
   return parts
 end
 
-local function parse_dimension(value, fallback)
-  if not value or value == '' then
-    return fallback
-  end
-  local trimmed = trim(value)
-  if trimmed:match('^%d+$') then
-    return trimmed .. 'px'
-  end
-  return trimmed
-end
-
 local function escape_attr(value)
   local replacements = { ['&'] = '&amp;', ['<'] = '&lt;', ['>'] = '&gt;', ['"'] = '&quot;', ["'"] = '&#39;' }
   return (value:gsub('[&<>"\']', replacements))
@@ -254,23 +252,14 @@ local function particles(args, kwargs)
   local reserved_keys = {
     id = true,
     class = true,
-    height = true,
-    width = true,
-    background = true,
-    ['background-color'] = true,
     style = true,
     config = true,
     ['config-mode'] = true,
-    config_mode = true,
-    position = true
+    config_mode = true
   }
 
-  local id = get_kwarg(kwargs, 'id') or ('quarto-particlejs-' .. instance_counter)
+  local id = get_kwarg(kwargs, 'id') or ('quarto-particles-js-' .. instance_counter)
   local class_attr = get_kwarg(kwargs, 'class')
-  local position = get_kwarg(kwargs, 'position') or 'unset'
-  local height = parse_dimension(get_kwarg(kwargs, 'height'), '400px')
-  local width = parse_dimension(get_kwarg(kwargs, 'width'), '100%')
-  local background = get_kwarg(kwargs, 'background') or get_kwarg(kwargs, 'background-color') or '#ffffff'
   local extra_style_raw = kwargs['style']
   local extra_style
   if extra_style_raw ~= nil then
@@ -330,24 +319,17 @@ local function particles(args, kwargs)
     end
   end
 
-  local style_parts = {
-    'position: ' .. position,
-    'width: ' .. width,
-    'height: ' .. height,
-    'background-color: ' .. background
-  }
-  if extra_style and extra_style ~= '' then
-    style_parts[#style_parts + 1] = extra_style
-  end
-  local style = table.concat(style_parts, '; ')
+  local style = extra_style
 
-  local class_attribute = ''
+  local class_value = 'quarto-particles-js'
   if class_attr and class_attr ~= '' then
-    class_attribute = ' class="' .. escape_attr(class_attr) .. '"'
+    class_value = class_value .. ' ' .. class_attr
   end
+  class_value = class_value .. ' ' .. id
+  local class_attribute = ' class="' .. escape_attr(class_value) .. '"'
 
   local style_attribute = ''
-  if style ~= '' then
+  if style and style ~= '' then
     style_attribute = ' style="' .. escape_attr(style) .. '"'
   end
 

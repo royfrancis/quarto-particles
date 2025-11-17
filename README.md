@@ -37,15 +37,13 @@ Pass arguments to the shortcode with `key=value`. Nested keys follow the particl
 
 | Key | Default | Description |
 | --- | --- | --- |
-| `id` | auto (`quarto-particlejs-#`) | HTML id for the wrapper div.
-| `class` | *(none)* | Space-delimited CSS classes added to the wrapper.
-| `position` | `unset` | CSS position value applied to the wrapper.
-| `width` | `100%` | Wrapper width; append a unit or bare number for pixels.
-| `height` | `400px` | Wrapper height; append a unit or bare number for pixels.
-| `background` / `background-color` | `#ffffff` | Background color behind the canvas.
-| `style` | *(none)* | Additional inline styles appended to the wrapper style attribute.
+| `id` | auto (`quarto-particles-js-#`) | HTML id for the wrapper div.
+| `class` | `quarto-particles-js` | Additional classes appended to the default (the element also gets the generated `id` as a class).
+| `style` | *(none)* | Inline styles applied to the wrapper (use to set width, height, background, etc.).
 | `config` | *(none)* | JSON string applied to the config. Useful for pasting a full particles.js preset.
 | `config-mode` (`config_mode`) | `merge` | When `replace`, the JSON supplied via `config` bypasses defaults; otherwise it merges with them.
+
+The default `quarto-particles-js` class (defined in `_extensions/particles/particles.css`) sets the wrapper to `width: 100%` and `height: 100%`. Supply your own CSS or a `style` attribute when you need fixed dimensions or background colors. Each instance also adds its `id` as a class to make instance-specific styling easier.
 
 ### `particles.number`
 
@@ -157,9 +155,7 @@ Pass arguments to the shortcode with `key=value`. Nested keys follow the particl
 
 ```
 {{< particles
-  width=100%
-  height=320
-  background="#0b1c26"
+  style="width: 100%; height: 320px; background-color: #0b1c26"
   particles.number.value=120
   particles.color.value="#55acee"
   particles.move.speed=2

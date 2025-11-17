@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">16-Nov-2025</p>
+        <p class="date">17-Nov-2025</p>
       </div>
     </div>
     
@@ -160,11 +160,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span><span class="at">{&lt; particles &gt;</span><span class="kw">}</span><span class="at">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="quarto-particlejs-1" style="position: unset; width: 100%; height: 400px; background-color: #ffffff"></div>
+<div id="quarto-particles-js-1" class="quarto-particles-js quarto-particles-js-1"></div>
 <script>
 (function(){
-  var targetId = "quarto-particlejs-1";
-  var config = {"retina_detect":true,"particles":{"move":{"bounce":false,"attract":{"rotateX":600,"enable":false,"rotateY":1200},"out_mode":"out","straight":false,"random":false,"direction":"none","enable":true,"speed":1},"number":{"density":{"enable":true,"value_area":800},"value":80},"line_linked":{"color":"#5b5b5b","enable":true,"width":1,"distance":150,"opacity":0.4},"shape":{"polygon":{"nb_sides":5},"type":"circle","stroke":{"width":0,"color":"#000000"},"image":{"src":"img/github.svg","height":100,"width":100}},"color":{"value":"#5b5b5b"},"opacity":{"random":false,"value":1,"anim":{"speed":1,"opacity_min":0.1,"enable":false,"sync":false}},"size":{"random":true,"value":5,"anim":{"speed":40,"enable":false,"size_min":0.1,"sync":false}}},"interactivity":{"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"duration":2,"size":40,"distance":400,"opacity":8,"speed":3},"push":{"particles_nb":4},"remove":{"particles_nb":2},"repulse":{"duration":0.4,"distance":50}},"events":{"resize":true,"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"}},"detect_on":"canvas"}};
+  var targetId = "quarto-particles-js-1";
+  var config = {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"line_linked":{"distance":150,"enable":true,"width":1,"opacity":0.4,"color":"#5b5b5b"},"opacity":{"value":1,"anim":{"opacity_min":0.1,"enable":false,"sync":false,"speed":1},"random":false},"size":{"value":5,"anim":{"size_min":0.1,"enable":false,"sync":false,"speed":40},"random":true},"shape":{"polygon":{"nb_sides":5},"type":"circle","stroke":{"width":0,"color":"#000000"},"image":{"src":"img/github.svg","width":100,"height":100}},"move":{"speed":1,"enable":true,"straight":false,"random":false,"direction":"none","out_mode":"out","bounce":false,"attract":{"rotateX":600,"enable":false,"rotateY":1200}},"color":{"value":"#5b5b5b"}},"interactivity":{"detect_on":"canvas","modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"remove":{"particles_nb":2},"repulse":{"distance":50,"duration":0.4},"push":{"particles_nb":4},"bubble":{"distance":400,"duration":2,"opacity":8,"size":40,"speed":3}},"events":{"onclick":{"enable":true,"mode":"push"},"onhover":{"enable":true,"mode":"repulse"},"resize":true}},"retina_detect":true};
   function initParticles() {
     if (typeof window.particlesJS === "function") {
       window.particlesJS(targetId, config);
@@ -193,26 +193,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="customization" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="customization"><span class="header-section-number">2.2</span> Customization</h3>
-<p>You can customize the particles by passing a JSON configuration object to the shortcode. For example:</p>
+<p>You can customize the particles by passing key/value pairs that map onto the particles.js configuration. The wrapper always includes a <code>quarto-particles-js</code> class (defined in <code>_extensions/particles/particles.css</code>) and the generated <code>id</code> as another class—add a <code>style</code> attribute or additional CSS if you need explicit sizing or background colors or want per-instance styling. For example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> particles</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">--- </span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span><span class="at">{&lt; particles</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  height=320</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  background=</span><span class="st">"#0b1c26"</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.number.value=120</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.color.value=</span><span class="st">"#55acee"</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.move.speed=2</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.events.onhover.mode=grab</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.modes.grab.distance=250</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span><span class="kw">}</span><span class="at">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="quarto-particlejs-2" style="position: unset; width: 100%; height: 320px; background-color: #0b1c26"></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">style="height</span><span class="kw">:</span><span class="at"> 320px; background-color:</span><span class="co"> #0b1c26"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.number.value=120</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.color.value="</span><span class="co">#55acee"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.move.speed=2</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.events.onhover.mode=grab</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.modes.grab.distance=250</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span><span class="kw">}</span><span class="at">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="quarto-particles-js-2" class="quarto-particles-js quarto-particles-js-2" style="height: 320px; background-color: #0b1c26"></div>
 <script>
 (function(){
-  var targetId = "quarto-particlejs-2";
-  var config = {"retina_detect":true,"particles":{"move":{"bounce":false,"attract":{"rotateX":600,"enable":false,"rotateY":1200},"out_mode":"out","straight":false,"random":false,"direction":"none","enable":true,"speed":2},"number":{"density":{"enable":true,"value_area":800},"value":120},"line_linked":{"color":"#5b5b5b","enable":true,"width":1,"distance":150,"opacity":0.4},"shape":{"polygon":{"nb_sides":5},"type":"circle","stroke":{"width":0,"color":"#000000"},"image":{"src":"img/github.svg","height":100,"width":100}},"color":{"value":"#55acee"},"opacity":{"random":false,"value":1,"anim":{"speed":1,"opacity_min":0.1,"enable":false,"sync":false}},"size":{"random":true,"value":5,"anim":{"speed":40,"enable":false,"size_min":0.1,"sync":false}}},"interactivity":{"modes":{"grab":{"distance":250,"line_linked":{"opacity":1}},"bubble":{"duration":2,"size":40,"distance":400,"opacity":8,"speed":3},"push":{"particles_nb":4},"remove":{"particles_nb":2},"repulse":{"duration":0.4,"distance":50}},"events":{"resize":true,"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"}},"detect_on":"canvas"}};
+  var targetId = "quarto-particles-js-2";
+  var config = {"particles":{"number":{"value":120,"density":{"enable":true,"value_area":800}},"line_linked":{"distance":150,"enable":true,"width":1,"opacity":0.4,"color":"#5b5b5b"},"opacity":{"value":1,"anim":{"opacity_min":0.1,"enable":false,"sync":false,"speed":1},"random":false},"size":{"value":5,"anim":{"size_min":0.1,"enable":false,"sync":false,"speed":40},"random":true},"shape":{"polygon":{"nb_sides":5},"type":"circle","stroke":{"width":0,"color":"#000000"},"image":{"src":"img/github.svg","width":100,"height":100}},"move":{"speed":2,"enable":true,"straight":false,"random":false,"direction":"none","out_mode":"out","bounce":false,"attract":{"rotateX":600,"enable":false,"rotateY":1200}},"color":{"value":"#55acee"}},"interactivity":{"detect_on":"canvas","modes":{"grab":{"distance":250,"line_linked":{"opacity":1}},"remove":{"particles_nb":2},"repulse":{"distance":50,"duration":0.4},"push":{"particles_nb":4},"bubble":{"distance":400,"duration":2,"opacity":8,"size":40,"speed":3}},"events":{"onclick":{"enable":true,"mode":"push"},"onhover":{"enable":true,"mode":"grab"},"resize":true}},"retina_detect":true};
   function initParticles() {
     if (typeof window.particlesJS === "function") {
       window.particlesJS(targetId, config);
@@ -245,19 +244,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span><span class="at">{&lt; particles</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  height=400</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">  background=</span><span class="st">"#1a1a1a"</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.number.value=80</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.color.value=</span><span class="st">"#ff5733"</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.move.speed=10</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.events.onhover.mode=bubble</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.modes.bubble.distance=200</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span><span class="kw">}</span><span class="at">} </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="quarto-particlejs-3" style="position: unset; width: 100%; height: 400px; background-color: #1a1a1a"></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">style="height</span><span class="kw">:</span><span class="at"> 400px; background-color:</span><span class="co"> #1a1a1a"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.number.value=80</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.color.value="</span><span class="co">#ff5733"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  particles.move.speed=10</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.events.onhover.mode=bubble</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">  interactivity.modes.bubble.distance=200</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span><span class="kw">}</span><span class="at">} </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="quarto-particles-js-3" class="quarto-particles-js quarto-particles-js-3" style="height: 400px; background-color: #1a1a1a"></div>
 <script>
 (function(){
-  var targetId = "quarto-particlejs-3";
-  var config = {"retina_detect":true,"particles":{"move":{"bounce":false,"attract":{"rotateX":600,"enable":false,"rotateY":1200},"out_mode":"out","straight":false,"random":false,"direction":"none","enable":true,"speed":10},"number":{"density":{"enable":true,"value_area":800},"value":80},"line_linked":{"color":"#5b5b5b","enable":true,"width":1,"distance":150,"opacity":0.4},"shape":{"polygon":{"nb_sides":5},"type":"circle","stroke":{"width":0,"color":"#000000"},"image":{"src":"img/github.svg","height":100,"width":100}},"color":{"value":"#ff5733"},"opacity":{"random":false,"value":1,"anim":{"speed":1,"opacity_min":0.1,"enable":false,"sync":false}},"size":{"random":true,"value":5,"anim":{"speed":40,"enable":false,"size_min":0.1,"sync":false}}},"interactivity":{"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"duration":2,"size":40,"distance":200,"opacity":8,"speed":3},"push":{"particles_nb":4},"remove":{"particles_nb":2},"repulse":{"duration":0.4,"distance":50}},"events":{"resize":true,"onhover":{"enable":true,"mode":"bubble"},"onclick":{"enable":true,"mode":"push"}},"detect_on":"canvas"}};
+  var targetId = "quarto-particles-js-3";
+  var config = {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"line_linked":{"distance":150,"enable":true,"width":1,"opacity":0.4,"color":"#5b5b5b"},"opacity":{"value":1,"anim":{"opacity_min":0.1,"enable":false,"sync":false,"speed":1},"random":false},"size":{"value":5,"anim":{"size_min":0.1,"enable":false,"sync":false,"speed":40},"random":true},"shape":{"polygon":{"nb_sides":5},"type":"circle","stroke":{"width":0,"color":"#000000"},"image":{"src":"img/github.svg","width":100,"height":100}},"move":{"speed":10,"enable":true,"straight":false,"random":false,"direction":"none","out_mode":"out","bounce":false,"attract":{"rotateX":600,"enable":false,"rotateY":1200}},"color":{"value":"#ff5733"}},"interactivity":{"detect_on":"canvas","modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"remove":{"particles_nb":2},"repulse":{"distance":50,"duration":0.4},"push":{"particles_nb":4},"bubble":{"distance":200,"duration":2,"opacity":8,"size":40,"speed":3}},"events":{"onclick":{"enable":true,"mode":"push"},"onhover":{"enable":true,"mode":"bubble"},"resize":true}},"retina_detect":true};
   function initParticles() {
     if (typeof window.particlesJS === "function") {
       window.particlesJS(targetId, config);
