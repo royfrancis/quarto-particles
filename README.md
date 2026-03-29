@@ -1,6 +1,6 @@
-# particles
+# particles ![build](https://github.com/royfrancis/quarto-particles/workflows/deploy/badge.svg)
 
-A quarto shortcode extension to add [Particles.JS](https://vincentgarreau.com/particles.js/) for html format.
+A quarto shortcode extension to add [Particles.JS](https://vincentgarreau.com/particles.js/) for html and revealjs formats.
 
 ![](preview.webp)
 
@@ -170,4 +170,4 @@ Built on [Particles.JS](https://vincentgarreau.com/particles.js/).
 
 ---
 
-2025 • Roy Francis
+2026 • Roy Francis

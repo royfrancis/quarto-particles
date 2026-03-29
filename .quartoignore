@@ -7,6 +7,6 @@ README.md
 LICENSE
 preview.jpg
 _quarto.yml
-index.qmd
-index.html
+*.qmd
+*.html
 styles.css

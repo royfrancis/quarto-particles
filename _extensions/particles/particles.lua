@@ -249,6 +249,11 @@ local function particles(args, kwargs)
   kwargs = kwargs or {}
   instance_counter = instance_counter + 1
 
+  local is_revealjs_format = quarto.doc.is_format("revealjs")
+  if quarto.doc.is_format("html") or is_revealjs_format then
+    addHTMLDeps()
+  end
+
   local reserved_keys = {
     id = true,
     class = true,
@@ -322,6 +327,9 @@ local function particles(args, kwargs)
   local style = extra_style
 
   local class_value = 'quarto-particles-js'
+  if is_revealjs_format then
+    class_value = class_value .. ' quarto-particles-revealjs'
+  end
   if class_attr and class_attr ~= '' then
     class_value = class_value .. ' ' .. class_attr
   end

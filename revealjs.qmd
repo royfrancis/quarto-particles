@@ -1,0 +1,74 @@
+---
+title: "Particles RevealJS"
+author: "Roy Francis"
+format: revealjs
+filters:
+  - particles
+---
+
+## Default particles
+
+{{< particles >}}
+
+This slide has default particles.
+
+## Custom particles
+
+{{< particles
+  style="background-color: #0b1c26"
+  particles.number.value=120
+  particles.color.value="#55acee"
+  particles.line_linked.color="#55acee"
+  particles.move.speed=2
+  interactivity.events.onhover.mode=grab
+  interactivity.modes.grab.distance=250
+>}}
+
+Custom blue particles with grab interaction.
+
+## Dense particles
+
+{{< particles
+  style="height: 400px; background-color: #1a1a1a"
+  particles.number.value=80
+  particles.color.value="#ff5733"
+  particles.move.speed=10
+  interactivity.events.onhover.mode=bubble
+  interactivity.modes.bubble.distance=200
+>}}
+
+Dense fast-moving red particles.
+
+## No lines
+
+{{< particles
+  style="height: 400px; background-color: #FAFAF9"
+  particles.number.value=400
+  particles.number.density.value_area=100
+  particles.color.value="#000000"
+  particles.shape.stroke.width=2
+  particles.shape.stroke.color="#D4F6F0"
+  particles.opacity.random=true
+  particles.opacity.anim.enable=true
+  particles.opacity.anim.speed=10
+  particles.opacity.anim.opacity_min=0
+  particles.size.value=2
+  particles.size.random=true
+  particles.line_linked.enable=false
+  particles.move.speed=6
+  particles.move.random=true
+  interactivity.events.onhover.mode=bubble
+  interactivity.events.onclick.enable=false
+  interactivity.modes.bubble.size=5
+  interactivity.modes.bubble.duration=10
+  interactivity.modes.bubble.opacity=0
+  interactivity.modes.bubble.speed=3
+  interactivity.modes.repulse.distance=400
+  retina_detect=true
+>}}
+
+Scattered particles without linking lines.
+
+## Plain slide
+
+This slide has no particles — just regular content.

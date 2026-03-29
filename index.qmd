@@ -1,7 +1,7 @@
 ---
 title: "Particles"
 subtitle: "Add Particles.JS to Quarto HTML documents"
-description: "A quarto shortcode extension to add Particles.JS for html format."
+description: "A quarto shortcode extension to add Particles.JS for html and revealjs formats"
 author: "Roy Francis"
 date: last-modified
 date-format: DD-MMM-YYYY
@@ -10,7 +10,7 @@ number-sections: true
 title-block-banner: true
 format:
   html:
-   css: styles.css
+   theme: pulse
 filters:
   - particles
 ---
@@ -43,17 +43,13 @@ filters:
 ```
 
 {{< particles >}}
+\
 
 ### Customization
 
 You can customize the particles by passing key/value pairs that map onto the particles.js configuration. The wrapper always includes a `quarto-particles-js` class (defined in `_extensions/particles/particles.css`) and the generated `id` as another class—add a `style` attribute or additional CSS if you need explicit sizing or background colors or want per-instance styling. For example:
 
-```yaml
----
-filters:
-  - particles
---- 
-
+```lua
 {{{< particles
   style="height: 320px; background-color: #0b1c26"
   particles.number.value=120
@@ -72,15 +68,11 @@ filters:
   interactivity.events.onhover.mode=grab
   interactivity.modes.grab.distance=250
 >}}
+\
 
 Here is another example with different settings:
 
-```yaml
----
-filters:
-  - particles
----
-
+```lua
 {{{< particles
   style="height: 400px; background-color: #1a1a1a"
   particles.number.value=80
@@ -98,7 +90,65 @@ filters:
   particles.move.speed=10
   interactivity.events.onhover.mode=bubble
   interactivity.modes.bubble.distance=200
->}} 
+>}}
+\
+
+This is a more complex example with many non-default settings:
+
+```lua
+{{{< particles
+  style="height: 400px; background-color: #000000"
+  particles.number.value=400
+  particles.number.density.value_area=100
+  particles.color.value="#000000"
+  particles.shape.stroke.width=2
+  particles.shape.stroke.color="#D4F6F0"
+  particles.opacity.random=true
+  particles.opacity.anim.enable=true
+  particles.opacity.anim.speed=10
+  particles.opacity.anim.opacity_min=0
+  particles.size.value=2
+  particles.size.random=true
+  particles.line_linked.enable=false
+  particles.move.speed=6
+  particles.move.random=true
+  interactivity.events.onhover.mode=bubble
+  interactivity.events.onclick.enable=false
+  interactivity.modes.bubble.size=5
+  interactivity.modes.bubble.duration=10
+  interactivity.modes.bubble.opacity=0
+  interactivity.modes.bubble.speed=3
+  interactivity.modes.repulse.distance=400
+  retina_detect=true
+>}}}
+```
+
+{{< particles
+  style="height: 400px; background-color: #FAFAF9"
+  particles.number.value=400
+  particles.number.density.value_area=100
+  particles.color.value="#000000"
+  particles.shape.stroke.width=2
+  particles.shape.stroke.color="#D4F6F0"
+  particles.opacity.random=true
+  particles.opacity.anim.enable=true
+  particles.opacity.anim.speed=10
+  particles.opacity.anim.opacity_min=0
+  particles.size.value=2
+  particles.size.random=true
+  particles.line_linked.enable=false
+  particles.move.speed=6
+  particles.move.random=true
+  interactivity.events.onhover.mode=bubble
+  interactivity.events.onclick.enable=false
+  interactivity.modes.bubble.size=5
+  interactivity.modes.bubble.duration=10
+  interactivity.modes.bubble.opacity=0
+  interactivity.modes.bubble.speed=3
+  interactivity.modes.repulse.distance=400
+  retina_detect=true
+>}}
+\
 
 See the repo [README](https://github.com/royfrancis/quarto-particles) for full list of arguments.
 

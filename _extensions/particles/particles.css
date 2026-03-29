@@ -2,3 +2,19 @@
   width: 100%;
   height: 100%;
 } */
+
+/* Revealjs: make particles fill the slide as a background */
+/* .reveal .quarto-particles-revealjs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+} */
+
+/* Revealjs: ensure slide content appears above particles */
+.reveal section:has(.quarto-particles-revealjs) > *:not(.quarto-particles-js) {
+  position: relative;
+  z-index: 1;
+}
