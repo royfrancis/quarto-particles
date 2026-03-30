@@ -2,17 +2,15 @@
 
 -- Add html dependencies
 local function addHTMLDeps()
-  -- add the HTML requirements for the Bootstrap particles
   quarto.doc.add_html_dependency({
     name = 'particles',
+    scripts = {'assets/js/particles.min.js'},
     stylesheets = {'particles.css'}
   })
 end
 
 local utils = require 'pandoc.utils'
 local has_json, json = pcall(require, 'pandoc.json')
-
-local SCRIPT_URL = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"
 
 local DEFAULT_CONFIG = {
   particles = {
@@ -343,34 +341,49 @@ local function particles(args, kwargs)
 
   local config_json = json_encode(config)
 
+  local init_js
+  if is_revealjs_format then
+    init_js = [[
+  var initialized = false;
+  function tryInit() {
+    if (initialized) return;
+    var el = document.getElementById(targetId);
+    if (!el) return;
+    var slide = el.closest('section');
+    if (!slide || !slide.classList.contains('present')) return;
+    initialized = true;
+    window.particlesJS(targetId, config);
+  }
+  function bindReveal() {
+    Reveal.on('ready', tryInit);
+    Reveal.on('slidechanged', tryInit);
+  }
+  if (typeof Reveal !== "undefined") {
+    bindReveal();
+    if (Reveal.isReady()) { tryInit(); }
+  } else {
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof Reveal !== "undefined") { bindReveal(); }
+    });
+  }]]
+  else
+    init_js = [[
+  function initParticles() {
+    window.particlesJS(targetId, config);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initParticles);
+  } else {
+    initParticles();
+  }]]
+  end
+
   local html = string.format([[<div id="%s"%s%s></div>
 <script>
 (function(){
   var targetId = %s;
   var config = %s;
-  function initParticles() {
-    if (typeof window.particlesJS === "function") {
-      window.particlesJS(targetId, config);
-    }
-  }
-  if (typeof window.particlesJS === "function") {
-    initParticles();
-    return;
-  }
-  window.__quartoParticles = window.__quartoParticles || { queue: [], loading: false };
-  window.__quartoParticles.queue.push(initParticles);
-  if (!window.__quartoParticles.loading) {
-    window.__quartoParticles.loading = true;
-    var script = document.createElement("script");
-    script.src = "%s";
-    script.async = true;
-    script.onload = function() {
-      window.__quartoParticles.queue.forEach(function(fn){ fn(); });
-      window.__quartoParticles.queue = [];
-      window.__quartoParticles.loading = false;
-    };
-    document.head.appendChild(script);
-  }
+%s
 })();
 </script>]],
     escape_attr(id),
@@ -378,7 +391,7 @@ local function particles(args, kwargs)
     style_attribute,
     json_encode(id),
     config_json,
-    SCRIPT_URL
+    init_js
   )
 
   return pandoc.RawBlock('html', html)

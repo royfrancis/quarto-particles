@@ -23,5 +23,10 @@ website:
     left: "{{< meta current_year >}} Roy Francis • [MIT License](https://choosealicense.com/licenses/mit/)"
     right: "Published with [Quarto](https://quarto.org/) v{{< meta quarto_version >}}"
 
+format:
+  html:
+   theme: pulse
+
 filters:
   - custom.lua
+

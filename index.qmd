@@ -10,7 +10,13 @@ number-sections: true
 title-block-banner: true
 format:
   html:
-   theme: pulse
+    code-overflow: wrap
+  pdf:
+    output-file: index-latex.pdf
+    code-overflow: wrap
+  typst:
+    output-file: index-typst.pdf
+    code-overflow: wrap
 filters:
   - particles
 ---
@@ -154,4 +160,4 @@ See the repo [README](https://github.com/royfrancis/quarto-particles) for full l
 
 ### Other output formats
 
-The content is simply ignored when the output format is anything other than `html`.
+The content is simply ignored when the output format is anything other than `html` or `revealjs`.
