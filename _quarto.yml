@@ -14,6 +14,9 @@ website:
       - text: "Presentation"
         href: "revealjs.html"
         aria-label: "RevealJS Presentation"
+      - text: "Versions"
+        href: "changelog.html"
+        aria-label: "Change log"
     right:
       - icon: github
         aria-label: "GitHub"
