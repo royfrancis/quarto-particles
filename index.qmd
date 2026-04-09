@@ -17,8 +17,6 @@ format:
   typst:
     output-file: index-typst.pdf
     code-overflow: wrap
-filters:
-  - particles
 ---
 
 ## Install
@@ -36,15 +34,9 @@ This will install the extension under the `_extensions` subdirectory.
 
 ### Minimal usage
 
-- Add `particles` to filters  
 - Insert shortcode in the quarto document  
 
 ```yaml
----
-filters:
-  - particles
----
-
 {{{< particles >}}}
 ```
 

@@ -18,12 +18,6 @@ This will install the extension under the `_extensions` subdirectory.
 ## Usage
 
 ```
----
-title: Particles
-filters:
-  - particles
----
-
 {{< particles >}}
 ```
 
